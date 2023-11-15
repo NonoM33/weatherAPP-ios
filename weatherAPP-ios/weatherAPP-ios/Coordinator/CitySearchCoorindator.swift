@@ -22,6 +22,7 @@ class CitySearchCoorindator: Coordinator {
     // MARK: - Coordinator
 
     func start() {
+        // FIXME: (Renaud Cosson) 2023/15/11 Fix typo viewControler -> ViewController
         let viewControler = CitySearchViewController()
         viewControler.presenter = DependencyProvider.shared.citySearchPresenter(
             viewContract: viewControler,
