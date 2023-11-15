@@ -1,0 +1,11 @@
+framework module WeatherKITCustom {
+  umbrella header "WeatherKITCustom.h"
+  export *
+
+  module * { export * }
+}
+
+module WeatherKITCustom.Swift {
+  header "WeatherKITCustom-Swift.h"
+  requires objc
+}
