@@ -10,11 +10,14 @@ import UIKit
 
 class DetailCityViewController: UIViewController {
 
+    var presenter: DetailCityViewPresenter?
+
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        presenter?.start()
     }
 
     // MARK: - Private
