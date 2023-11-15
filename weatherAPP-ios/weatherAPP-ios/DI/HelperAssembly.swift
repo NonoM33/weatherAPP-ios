@@ -7,6 +7,7 @@
 
 import Foundation
 import Swinject
+import WeatherKITCustom
 
 class HelperAssembly: Assembly {
 
@@ -16,6 +17,11 @@ class HelperAssembly: Assembly {
 
         container.register(NavigationManager.self) { _ in
             NavigationManager.shared
+        }
+        .inObjectScope(.container)
+
+        container.register(APIClient.self) { _ in
+            APIClient(session: URLSession(configuration: .default))
         }
         .inObjectScope(.container)
     }
