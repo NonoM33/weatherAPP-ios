@@ -20,5 +20,12 @@ class PresenterAssembly: Assembly {
                 viewContract: viewcontract
             )
         }
+
+        container.register(DetailCityViewPresenter.self) { _, viewcontract, delegate in
+            DetailCityViewPresenterImplementation(
+                delegate: delegate,
+                viewContract: viewcontract
+            )
+        }
     }
 }
