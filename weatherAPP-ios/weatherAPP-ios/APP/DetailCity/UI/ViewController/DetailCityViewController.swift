@@ -12,6 +12,7 @@ class DetailCityViewController: UIViewController {
 
     var presenter: DetailCityViewPresenter?
     private lazy var detailTemperatureView = DetailTemperatureView()
+    private lazy var detailStatsInfoView = DetailStatsInfoView()
 
     // MARK: - Lifecycle
 
@@ -25,6 +26,7 @@ class DetailCityViewController: UIViewController {
 
     private func setup() {
         stackView.addArrangedSubview(detailTemperatureView)
+        stackView.addArrangedSubview(detailStatsInfoView)
     }
 }
 
