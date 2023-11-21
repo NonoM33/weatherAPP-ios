@@ -6,8 +6,17 @@
 //
 
 import Foundation
+import UIKit
 
 struct WeatherCityEntitie {
-    let main: String
-    let icon_name: String
+    let cityName: String
+    let date: String
+    let temperature: String
+    let description: String
+    let rainMm: String
+    let windKmh: String
+    let humidityPercent: String
+    let UVIndex: String
+    let icon: UIImage?
+    let backgroundColor: UIColor
 }
