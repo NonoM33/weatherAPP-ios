@@ -8,15 +8,19 @@
 import Foundation
 import UIKit
 import ADCoordinator
+import WeatherPackage
 
 class DetailCityCoordinator: Coordinator {
 
     // MARK: - private
 
     private unowned var navigationController: UINavigationController
+    private var weatherCityEntitie: WeatherCityEntitie
 
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController,
+         weatherCityEntitie: WeatherCityEntitie) {
         self.navigationController = navigationController
+        self.weatherCityEntitie = weatherCityEntitie
     }
 
     // MARK: - Coordinator
@@ -25,7 +29,8 @@ class DetailCityCoordinator: Coordinator {
         let viewController = DetailCityViewController()
         viewController.presenter = DependencyProvider.shared.detailCityPresenter(
             viewContract: viewController,
-            presenterDelegate: self
+            presenterDelegate: self,
+            weatherCityEntitie: weatherCityEntitie
         )
         navigationController.pushViewController(viewController, animated: true)
         bindToLifecycle(of: viewController)
