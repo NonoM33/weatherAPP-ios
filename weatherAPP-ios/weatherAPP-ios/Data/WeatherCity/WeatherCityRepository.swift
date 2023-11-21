@@ -6,7 +6,8 @@
 //
 
 import Foundation
-import WeatherKITCustom
+import WeatherPackage
+import UIKit
 
 protocol WeatherCityRepository {
     func getByCoordonate(lon: Double, lat: Double, completion: @escaping (Result<WeatherCityEntitie, Error>) -> Void)

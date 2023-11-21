@@ -6,23 +6,24 @@
 //
 
 import Foundation
-import WeatherKITCustom
+import WeatherPackage
+import UIKit
 
 class WeatherCityRepositoryImplementation: WeatherCityRepository {
 
-    let apiClient: APIClient
+    let weatherService: WeatherService
 
-    init(apiClient: APIClient) {
-        self.apiClient = apiClient
+    init(weatherService: WeatherService) {
+        self.weatherService = weatherService
     }
 
     // MARK: - WeatherCityRepository
 
     func getByCoordonate(lon: Double, lat: Double, completion: @escaping (Result<WeatherCityEntitie, Error>) -> Void) {
-        apiClient.fetchWeatherForCity(latitude: lat, longitude: lon) { result in
+        weatherService.fetchCurrentWeather(latitude: lat, longitude: lon) { result in
             switch result {
             case .success(let restWeather):
-                let weatherEntitie = WeatherMapper(restWeahterCity: restWeather).map()
+                let weatherEntitie = WeatherMapper(RESTWeatherGlobal: restWeather).map()
                 completion(.success(weatherEntitie))
             case .failure(let error):
                 completion(.failure(error))
