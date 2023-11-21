@@ -43,11 +43,11 @@ class WeatherMapper {
 
     private func mapTemperature() -> String {
         let temp = RESTWeatherGlobal.RESTWeatherCity?.main.temp ?? 0
-        return String(WeatherTools.convertKelvinToCelsius(kelvin: temp))
+        return String(Int(WeatherTools.convertKelvinToCelsius(kelvin: temp)))
     }
 
     private func mapDescription() -> String {
-        return RESTWeatherGlobal.RESTWeatherCity?.weather.description ?? ""
+        return RESTWeatherGlobal.RESTWeatherCity?.weather[0].description ?? ""
     }
 
     private func mapRainMm() -> String {
