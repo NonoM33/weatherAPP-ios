@@ -19,19 +19,12 @@ class DetailCityViewModelMapper {
 
     func map() -> DetailCityViewModel {
         return DetailCityViewModel(
-            cityName: weatherCityEntitie.cityName,
-            date: weatherCityEntitie.date,
-            temperature: weatherCityEntitie.temperature,
-            description: weatherCityEntitie.description,
-            rainMm: weatherCityEntitie.rainMm,
-            windKmh: weatherCityEntitie.windKmh,
-            humidityPercent: weatherCityEntitie.humidityPercent,
-            UVIndex: weatherCityEntitie.UVIndex,
             icon: weatherCityEntitie.icon,
             backgroundColor: weatherCityEntitie.backgroundColor,
             imageCity: nil,
             detailLocationViewModel: mapDetailLocationViewModel(),
-            detailTemperatureViewModel: mapDetailTemperatureViewModel()
+            detailTemperatureViewModel: mapDetailTemperatureViewModel(),
+            detailStatsInfoViewModel: mapDetailStatsInfoViewModel()
         )
     }
 
@@ -49,6 +42,31 @@ class DetailCityViewModelMapper {
         return DetailTemperatureViewModel(
             temperature: "\(weatherCityEntitie.temperature)°C",
             description: weatherCityEntitie.description
+        )
+    }
+
+    private func mapDetailStatsInfoViewModel() -> DetailStatsInfoViewModel {
+        return DetailStatsInfoViewModel(
+            rain: .init(
+                value: String(weatherCityEntitie.rainMm),
+                description: "Pluie",
+                precision: "en mm"
+            ),
+            wind: .init(
+                value: String(weatherCityEntitie.windKmh),
+                description: "Vent",
+                precision: "en km/h"
+            ),
+            humidity: .init(
+                value: String(weatherCityEntitie.humidityPercent),
+                description: "Humidité",
+                precision: "en %"
+            ),
+            UVIndex: .init(
+                value: String(weatherCityEntitie.UVIndex),
+                description: "Index UV",
+                precision: ""
+            )
         )
     }
 }
