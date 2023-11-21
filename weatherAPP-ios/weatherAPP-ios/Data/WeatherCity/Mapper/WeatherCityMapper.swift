@@ -50,24 +50,20 @@ class WeatherMapper {
         return RESTWeatherGlobal.RESTWeatherCity?.weather[0].description ?? ""
     }
 
-    private func mapRainMm() -> String {
-        let rain = RESTWeatherGlobal.RESTDetaillWeather?.current.rain?.oneHour ?? 0.0
-        return String(rain)
+    private func mapRainMm() -> Int {
+        return Int(RESTWeatherGlobal.RESTDetaillWeather?.current.rain?.oneHour ?? 0.0)
     }
 
     private func mapWindKmh() -> String {
-        let wind = RESTWeatherGlobal.RESTWeatherCity?.wind.speed ?? 0
-        return String(wind)
+        return (RESTWeatherGlobal.RESTWeatherCity?.wind.speed ?? 0).formatted(withDecimalPlaces: 1)
     }
 
-    private func mapHumidityPercent() -> String {
-        let humidity = RESTWeatherGlobal.RESTDetaillWeather?.current.humidity ?? 0
-        return String(humidity)
+    private func mapHumidityPercent() -> Int {
+        return Int(RESTWeatherGlobal.RESTDetaillWeather?.current.humidity ?? 0)
     }
 
-    private func mapUVIndex() -> String {
-        let uvi = RESTWeatherGlobal.RESTDetaillWeather?.current.uvi ?? 0
-        return String(uvi)
+    private func mapUVIndex() -> Int {
+        return Int(RESTWeatherGlobal.RESTDetaillWeather?.current.uvi ?? 0)
     }
 
     private func mapIcon() -> UIImage? {

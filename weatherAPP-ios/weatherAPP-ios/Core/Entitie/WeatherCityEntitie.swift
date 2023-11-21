@@ -13,10 +13,10 @@ struct WeatherCityEntitie {
     let date: String
     let temperature: String
     let description: String
-    let rainMm: String
+    let rainMm: Int
     let windKmh: String
-    let humidityPercent: String
-    let UVIndex: String
+    let humidityPercent: Int
+    let UVIndex: Int
     let icon: UIImage?
     let backgroundColor: CAGradientLayer
 }
