@@ -8,5 +8,5 @@
 import Foundation
 
 protocol DetailCityViewContract {
-    func display(_ viweModel: DetailCityViewModel)
+    func display(with viweModel: DetailCityViewModel)
 }
