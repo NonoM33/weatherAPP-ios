@@ -18,5 +18,5 @@ struct WeatherCityEntitie {
     let humidityPercent: String
     let UVIndex: String
     let icon: UIImage?
-    let backgroundColor: UIColor
+    let backgroundColor: CAGradientLayer
 }

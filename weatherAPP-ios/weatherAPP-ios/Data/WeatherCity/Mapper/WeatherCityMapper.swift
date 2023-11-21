@@ -27,7 +27,7 @@ class WeatherMapper {
             humidityPercent: mapHumidityPercent(),
             UVIndex: mapUVIndex(),
             icon: mapIcon(),
-            backgroundColor: mapBackgroundColor()
+            backgroundColor: mapBackgroundGradientLayer()
         )
     }
 
@@ -36,7 +36,9 @@ class WeatherMapper {
     }
 
     private func mapDate() -> String {
-        return Date().formatted(date: .abbreviated, time: .shortened)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy"
+        return dateFormatter.string(from: Date())
     }
 
     private func mapTemperature() -> String {
@@ -73,8 +75,17 @@ class WeatherMapper {
         return WeatherTools.iconTemperature(icon: icon)
     }
 
-    private func mapBackgroundColor() -> UIColor {
+    private func mapBackgroundGradientLayer() -> CAGradientLayer {
         let temp = RESTWeatherGlobal.RESTWeatherCity?.main.temp ?? 0
-        return WeatherTools.colorForTemperature(kelvin: temp)
+        let color = WeatherTools.colorForTemperature(kelvin: temp)
+
+        // Créer un dégradé en fonction de la couleur de température
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [color.cgColor, UIColor.white.cgColor]
+        gradientLayer.locations = [0.0, 1.0]
+        gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 0.5, y: 1.0)
+
+        return gradientLayer
     }
 }
