@@ -18,8 +18,9 @@ struct DetailCityViewModel {
     let humidityPercent: String
     let UVIndex: String
     let icon: UIImage?
-    let backgroundColor: UIColor
+    let backgroundColor: CAGradientLayer
     var imageCity: UIImage?
+    let detailLocationViewModel: DetailLocationViewModel
 
     static let empty = Self(
         cityName: "",
@@ -31,7 +32,8 @@ struct DetailCityViewModel {
         humidityPercent: "",
         UVIndex: "",
         icon: nil,
-        backgroundColor: .white,
-        imageCity: nil
+        backgroundColor: .init(),
+        imageCity: nil,
+        detailLocationViewModel: .emtpy
     )
 }

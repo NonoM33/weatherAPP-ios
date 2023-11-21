@@ -29,7 +29,18 @@ class DetailCityViewModelMapper {
             UVIndex: weatherCityEntitie.UVIndex,
             icon: weatherCityEntitie.icon,
             backgroundColor: weatherCityEntitie.backgroundColor,
-            imageCity: nil
+            imageCity: nil,
+            detailLocationViewModel: mapDetailLocationViewModel()
+        )
+    }
+
+    // MARK: - Private
+
+    private func mapDetailLocationViewModel() -> DetailLocationViewModel {
+        return DetailLocationViewModel(
+            location: weatherCityEntitie.cityName,
+            date: weatherCityEntitie.date,
+            isToday: weatherCityEntitie.date == Date().formatted(date: .abbreviated, time: .shortened)
         )
     }
 }
