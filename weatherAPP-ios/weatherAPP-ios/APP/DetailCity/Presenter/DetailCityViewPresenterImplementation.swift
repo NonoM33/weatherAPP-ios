@@ -11,13 +11,20 @@ class DetailCityViewPresenterImplementation: DetailCityViewPresenter {
 
     private var delegate: DetailCityViewPresenterDelegate
     private var viewContract: DetailCityViewContract
+    private var weatherCityEntitie: WeatherCityEntitie
+    private var viewModel: DetailCityViewModel?
 
-    init(delegate: DetailCityViewPresenterDelegate, viewContract: DetailCityViewContract) {
+    init(delegate: DetailCityViewPresenterDelegate,
+         viewContract: DetailCityViewContract,
+         weatherCityEntitie: WeatherCityEntitie) {
         self.delegate = delegate
         self.viewContract = viewContract
+        self.weatherCityEntitie = weatherCityEntitie
     }
 
     // MARK: - DetailCityViewPresenter
 
-    func start() {}
+    func start() {
+        self.viewContract.display(with: DetailCityViewModelMapper(weatherCityEntitie: weatherCityEntitie).map())
+    }
 }
