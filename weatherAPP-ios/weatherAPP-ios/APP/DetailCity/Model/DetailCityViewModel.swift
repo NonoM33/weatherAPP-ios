@@ -21,6 +21,7 @@ struct DetailCityViewModel {
     let backgroundColor: CAGradientLayer
     var imageCity: UIImage?
     let detailLocationViewModel: DetailLocationViewModel
+    let detailTemperatureViewModel: DetailTemperatureViewModel
 
     static let empty = Self(
         cityName: "",
@@ -34,6 +35,7 @@ struct DetailCityViewModel {
         icon: nil,
         backgroundColor: .init(),
         imageCity: nil,
-        detailLocationViewModel: .emtpy
+        detailLocationViewModel: .emtpy,
+        detailTemperatureViewModel: .empty
     )
 }

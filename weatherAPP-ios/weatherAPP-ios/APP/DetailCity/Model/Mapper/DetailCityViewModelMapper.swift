@@ -30,7 +30,8 @@ class DetailCityViewModelMapper {
             icon: weatherCityEntitie.icon,
             backgroundColor: weatherCityEntitie.backgroundColor,
             imageCity: nil,
-            detailLocationViewModel: mapDetailLocationViewModel()
+            detailLocationViewModel: mapDetailLocationViewModel(),
+            detailTemperatureViewModel: mapDetailTemperatureViewModel()
         )
     }
 
@@ -41,6 +42,13 @@ class DetailCityViewModelMapper {
             location: weatherCityEntitie.cityName,
             date: weatherCityEntitie.date,
             isToday: weatherCityEntitie.date == Date().formatted(date: .abbreviated, time: .shortened)
+        )
+    }
+
+    private func mapDetailTemperatureViewModel() -> DetailTemperatureViewModel {
+        return DetailTemperatureViewModel(
+            temperature: "\(weatherCityEntitie.temperature)°C",
+            description: weatherCityEntitie.description
         )
     }
 }
