@@ -7,7 +7,7 @@
 
 import Foundation
 import Swinject
-import WeatherKITCustom
+import WeatherPackage
 
 class HelperAssembly: Assembly {
 
@@ -20,8 +20,8 @@ class HelperAssembly: Assembly {
         }
         .inObjectScope(.container)
 
-        container.register(APIClient.self) { _ in
-            APIClient(session: URLSession(configuration: .default))
+        container.register(WeatherService.self) { _ in
+            WeatherService.shared
         }
         .inObjectScope(.container)
     }

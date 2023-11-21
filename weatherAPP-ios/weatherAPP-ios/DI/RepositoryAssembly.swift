@@ -7,7 +7,7 @@
 
 import Foundation
 import Swinject
-import WeatherKITCustom
+import WeatherPackage
 
 class RepositoryAssembly: Assembly {
 
@@ -17,7 +17,7 @@ class RepositoryAssembly: Assembly {
 
         container.register(WeatherCityRepository.self) { r in
             WeatherCityRepositoryImplementation(
-                apiClient: r.resolve(APIClient.self)!
+                weatherService: r.resolve(WeatherService.self)!
             )
         }
         .inObjectScope(.container)

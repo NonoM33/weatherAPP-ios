@@ -39,7 +39,7 @@ public class DependencyProvider: NSObject {
         )!
     }
 
-    func detailCityPresenter(viewContract: DetailCityViewPresenter,
+    func detailCityPresenter(viewContract: DetailCityViewContract,
                              presenterDelegate: DetailCityViewPresenterDelegate)
     -> DetailCityViewPresenter {
         return resolver.resolve(
