@@ -11,5 +11,5 @@ import UIKit
 enum Colors {
     static let white: UIColor = .white
     static let black: UIColor = .black
-    static let orange = UIColor(red: 1, green: 0.49, blue: 0.46, alpha: 1)
+    static let orange = UIColor(red: 0.99, green: 0.49, blue: 0.46, alpha: 1)
 }

@@ -73,11 +73,11 @@ class WeatherMapper {
 
     private func mapBackgroundGradientLayer() -> CAGradientLayer {
         let temp = RESTWeatherGlobal.RESTWeatherCity?.main.temp ?? 0
-        let color = WeatherTools.colorForTemperature(kelvin: temp)
+        let color = Colors.orange
 
         // Créer un dégradé en fonction de la couleur de température
         let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [color.cgColor, UIColor.white.cgColor]
+        gradientLayer.colors = [color.cgColor, UIColor(red: 0.77, green: 0.74, blue: 0.72, alpha: 1).cgColor]
         gradientLayer.locations = [0.0, 1.0]
         gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.0)
         gradientLayer.endPoint = CGPoint(x: 0.5, y: 1.0)
