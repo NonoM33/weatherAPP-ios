@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import WeatherPackage
+import UIKit
 
 class DetailCityViewModelMapper {
 
@@ -21,10 +23,11 @@ class DetailCityViewModelMapper {
         return DetailCityViewModel(
             icon: weatherCityEntitie.icon,
             backgroundColor: weatherCityEntitie.backgroundColor,
-            imageCity: nil,
             detailLocationViewModel: mapDetailLocationViewModel(),
             detailTemperatureViewModel: mapDetailTemperatureViewModel(),
-            detailStatsInfoViewModel: mapDetailStatsInfoViewModel()
+            detailStatsInfoViewModel: mapDetailStatsInfoViewModel(),
+            detailTimeLineTempViewmodel: mapDetailTimeLineTempViewmodel(),
+            detailFuturTempDailyViewModel: mapDetailFuturTempDailyViewModel()
         )
     }
 
@@ -67,6 +70,57 @@ class DetailCityViewModelMapper {
                 description: "Index UV",
                 precision: ""
             )
+        )
+    }
+
+    private func mapDetailTimeLineTempViewmodel() -> DetailTimeLineTempViewModel {
+        return DetailTimeLineTempViewModel(
+            cellModels: mapDetailTimeLineTempViewCellsModels())
+        }
+
+    private func mapDetailTimeLineTempViewCellsModels() -> [DetailTimeLineTempViewCellModel] {
+        return weatherCityEntitie.hourlyTemp.map({
+            mapDetailTimeLineTempViewCellModel(
+                hourly: $0
+            )
+        })
+    }
+
+    private func mapDetailTimeLineTempViewCellModel(hourly: HourlyWeather) -> DetailTimeLineTempViewCellModel {
+        return DetailTimeLineTempViewCellModel(
+            value: String("\(Int(WeatherTools.convertKelvinToCelsius(kelvin: hourly.temp)))°"),
+            icon: UIImage(named: hourly.weather[0].icon) ?? ._01D,
+            time: "\(WeatherTools.convertUnixTimeToDate(unixTime: hourly.dt, dateFormat: "HH"))H",
+            isNow: mapIsNow(hourly: hourly)
+        )
+    }
+
+    private func mapIsNow(hourly: HourlyWeather) -> Bool {
+        let hourWeather = WeatherTools.convertUnixTimeToDate(unixTime: hourly.dt, dateFormat: "dd/MM/YY HH")
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/YY HH"
+        let hourNow = dateFormatter.string(from: Date())
+        return hourNow == hourWeather
+    }
+
+    private func mapDetailFuturTempDailyViewModel() -> DetailFuturTempDailyViewModel {
+        return DetailFuturTempDailyViewModel(
+            detailFuturTempDailyViewCellsModels: mapDetailFuturTempDailyViewCellsModels()
+        )
+    }
+
+    private func mapDetailFuturTempDailyViewCellsModels() -> [DetailFuturTempDailyViewCellModel] {
+        return weatherCityEntitie.daysTemp.map({
+            mapDetailFuturTempDailyViewCellModel(daily: $0)
+        })
+    }
+
+    private func mapDetailFuturTempDailyViewCellModel(daily: DailyWeather) -> DetailFuturTempDailyViewCellModel {
+        return DetailFuturTempDailyViewCellModel(
+            date: WeatherTools.convertUnixTimeToDate(unixTime: daily.dt, dateFormat: "EEEE"),
+            temp: String("\(Int(WeatherTools.convertKelvinToCelsius(kelvin: daily.temp.day)))°"),
+            description: daily.weather[0].description,
+            icon: UIImage(named: daily.weather[0].icon) ?? ._01D
         )
     }
 }

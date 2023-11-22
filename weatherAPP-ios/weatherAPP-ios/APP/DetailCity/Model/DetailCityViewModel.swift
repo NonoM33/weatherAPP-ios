@@ -11,17 +11,19 @@ import UIKit
 struct DetailCityViewModel {
     let icon: UIImage?
     let backgroundColor: CAGradientLayer
-    var imageCity: UIImage?
     let detailLocationViewModel: DetailLocationViewModel
     let detailTemperatureViewModel: DetailTemperatureViewModel
     let detailStatsInfoViewModel: DetailStatsInfoViewModel
+    let detailTimeLineTempViewmodel: DetailTimeLineTempViewModel
+    let detailFuturTempDailyViewModel: DetailFuturTempDailyViewModel
 
     static let empty = Self(
         icon: nil,
         backgroundColor: .init(),
-        imageCity: nil,
         detailLocationViewModel: .emtpy,
         detailTemperatureViewModel: .empty,
-        detailStatsInfoViewModel: .empty
+        detailStatsInfoViewModel: .empty,
+        detailTimeLineTempViewmodel: .empty,
+        detailFuturTempDailyViewModel: .empty
     )
 }
