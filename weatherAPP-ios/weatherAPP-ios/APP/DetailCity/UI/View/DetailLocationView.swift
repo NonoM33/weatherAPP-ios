@@ -97,9 +97,23 @@ class DetailLocationView: UIView {
 
     private func createDivider() -> UIView {
         let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.heightAnchor.constraint(equalToConstant: 1).isActive = true
-        view.backgroundColor = Colors.white
+        let divider = UIView()
+        divider.translatesAutoresizingMaskIntoConstraints = false
+        divider.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        divider.backgroundColor = Colors.white
+        view.addSubview(divider)
+
+        NSLayoutConstraint.activate([
+            divider.topAnchor.constraint(equalTo: view.topAnchor),
+            divider.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            divider.leftAnchor.constraint(
+                equalTo: view.leftAnchor
+            ),
+            divider.widthAnchor.constraint(
+                equalTo: view.widthAnchor,
+                multiplier: 1.0 / 1.5
+            )
+        ])
         return view
     }
 
