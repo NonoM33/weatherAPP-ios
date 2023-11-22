@@ -38,6 +38,10 @@ extension ViewStyle where T == UILabel {
         $0.font = UIFont.R.body3
     }
 
+    public static let body4 = base.compose {
+        $0.font = UIFont.R.body4
+    }
+
     public static let description1 = base.compose {
         $0.font = UIFont.R.description1
     }
