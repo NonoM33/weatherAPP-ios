@@ -27,7 +27,8 @@ class WeatherMapper {
             humidityPercent: mapHumidityPercent(),
             UVIndex: mapUVIndex(),
             icon: mapIcon(),
-            backgroundColor: mapBackgroundGradientLayer()
+            backgroundColor: mapBackgroundGradientLayer(),
+            timeTemp: RESTWeatherGlobal.RESTDetaillWeather?.hourly ?? []
         )
     }
 
@@ -75,7 +76,6 @@ class WeatherMapper {
         let temp = RESTWeatherGlobal.RESTWeatherCity?.main.temp ?? 0
         let color = Colors.orange
 
-        // Créer un dégradé en fonction de la couleur de température
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [color.cgColor, UIColor(red: 0.77, green: 0.74, blue: 0.72, alpha: 1).cgColor]
         gradientLayer.locations = [0.0, 1.0]
