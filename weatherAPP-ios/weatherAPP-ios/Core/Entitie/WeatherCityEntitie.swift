@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import WeatherPackage
 
 struct WeatherCityEntitie {
     let cityName: String
@@ -19,4 +20,6 @@ struct WeatherCityEntitie {
     let UVIndex: Int
     let icon: UIImage?
     let backgroundColor: CAGradientLayer
+    let hourlyTemp: [HourlyWeather]
+    let daysTemp: [DailyWeather]
 }

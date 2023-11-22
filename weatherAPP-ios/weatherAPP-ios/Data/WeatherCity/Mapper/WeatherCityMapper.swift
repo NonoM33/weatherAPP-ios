@@ -28,7 +28,8 @@ class WeatherMapper {
             UVIndex: mapUVIndex(),
             icon: mapIcon(),
             backgroundColor: mapBackgroundGradientLayer(),
-            timeTemp: RESTWeatherGlobal.RESTDetaillWeather?.hourly ?? []
+            hourlyTemp: RESTWeatherGlobal.RESTDetaillWeather?.hourly ?? [],
+            daysTemp: RESTWeatherGlobal.RESTDetaillWeather?.daily ?? []
         )
     }
 
