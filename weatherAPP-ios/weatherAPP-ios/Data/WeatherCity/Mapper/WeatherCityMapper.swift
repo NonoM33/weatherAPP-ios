@@ -43,12 +43,12 @@ class WeatherMapper {
     }
 
     private func mapTemperature() -> String {
-        let temp = RESTWeatherGlobal.RESTWeatherCity?.main.temp ?? 0
+        let temp = RESTWeatherGlobal.RESTWeatherCity?.main?.temp ?? 0
         return String(Int(WeatherTools.convertKelvinToCelsius(kelvin: temp)))
     }
 
     private func mapDescription() -> String {
-        return RESTWeatherGlobal.RESTWeatherCity?.weather[0].description ?? ""
+        return RESTWeatherGlobal.RESTWeatherCity?.weather?[0].description ?? ""
     }
 
     private func mapRainMm() -> Int {
@@ -56,7 +56,7 @@ class WeatherMapper {
     }
 
     private func mapWindKmh() -> String {
-        return (RESTWeatherGlobal.RESTWeatherCity?.wind.speed ?? 0).formatted(withDecimalPlaces: 1)
+        return (RESTWeatherGlobal.RESTWeatherCity?.wind?.speed ?? 0).formatted(withDecimalPlaces: 1)
     }
 
     private func mapHumidityPercent() -> Int {
@@ -68,7 +68,6 @@ class WeatherMapper {
     }
 
     private func mapBackgroundGradientLayer() -> CAGradientLayer {
-        let temp = RESTWeatherGlobal.RESTWeatherCity?.main.temp ?? 0
         let color = Colors.orange
 
         let gradientLayer = CAGradientLayer()
