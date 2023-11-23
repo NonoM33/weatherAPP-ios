@@ -3,7 +3,7 @@
 //  weatherAPP-ios
 //
 //  Created by renaud on 14/11/2023.
-//
+// swiftlint: disable force_unwrapping
 
 import Foundation
 import Swinject
@@ -14,10 +14,20 @@ class PresenterAssembly: Assembly {
 
     func assemble(container: Container) {
 
-        container.register(CitySearchPresenter.self) { _, viewcontract, delegate in
+        container.register(CitySearchPresenter.self) { r, viewcontract, delegate in
             CitySearchPresenterImplementation(
                 delegate: delegate,
-                viewContract: viewcontract
+                viewContract: viewcontract,
+                navigationManager: r.resolve(NavigationManager.self)!,
+                weatherCityRepository: r.resolve(WeatherCityRepository.self)!
+            )
+        }
+
+        container.register(DetailCityViewPresenter.self) { _, viewcontract, delegate, weatherCityEntitie in
+            DetailCityViewPresenterImplementation(
+                delegate: delegate,
+                viewContract: viewcontract,
+                weatherCityEntitie: weatherCityEntitie
             )
         }
     }

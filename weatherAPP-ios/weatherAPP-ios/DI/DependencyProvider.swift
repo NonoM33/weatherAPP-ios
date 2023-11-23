@@ -39,6 +39,18 @@ public class DependencyProvider: NSObject {
         )!
     }
 
+    func detailCityPresenter(viewContract: DetailCityViewContract,
+                             presenterDelegate: DetailCityViewPresenterDelegate,
+                             weatherCityEntitie: WeatherCityEntitie)
+    -> DetailCityViewPresenter {
+        return resolver.resolve(
+            DetailCityViewPresenter.self,
+            arguments: viewContract,
+            presenterDelegate,
+            weatherCityEntitie
+        )!
+    }
+
     func navigationManager() -> NavigationManager {
         return resolver.resolve(NavigationManager.self)!
     }
