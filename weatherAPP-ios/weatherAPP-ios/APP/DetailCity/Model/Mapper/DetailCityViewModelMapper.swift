@@ -21,7 +21,6 @@ class DetailCityViewModelMapper {
 
     func map() -> DetailCityViewModel {
         return DetailCityViewModel(
-            icon: weatherCityEntitie.icon,
             backgroundColor: weatherCityEntitie.backgroundColor,
             detailLocationViewModel: mapDetailLocationViewModel(),
             detailTemperatureViewModel: mapDetailTemperatureViewModel(),
@@ -88,15 +87,15 @@ class DetailCityViewModelMapper {
 
     private func mapDetailTimeLineTempViewCellModel(hourly: HourlyWeather) -> DetailTimeLineTempViewCellModel {
         return DetailTimeLineTempViewCellModel(
-            value: String("\(Int(WeatherTools.convertKelvinToCelsius(kelvin: hourly.temp)))°"),
-            icon: UIImage(named: hourly.weather[0].icon) ?? ._01D,
-            time: "\(WeatherTools.convertUnixTimeToDate(unixTime: hourly.dt, dateFormat: "HH"))H",
+            value: String("\(Int(WeatherTools.convertKelvinToCelsius(kelvin: hourly.temp ?? 0)))°"),
+            icon: UIImage(named: hourly.weather?[0].icon ?? "") ?? ._01D,
+            time: "\(WeatherTools.convertUnixTimeToDate(unixTime: hourly.dt ?? 0, dateFormat: "HH"))H",
             isNow: mapIsNow(hourly: hourly)
         )
     }
 
     private func mapIsNow(hourly: HourlyWeather) -> Bool {
-        let hourWeather = WeatherTools.convertUnixTimeToDate(unixTime: hourly.dt, dateFormat: "dd/MM/YY HH")
+        let hourWeather = WeatherTools.convertUnixTimeToDate(unixTime: hourly.dt ?? 0, dateFormat: "dd/MM/YY HH")
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/YY HH"
         let hourNow = dateFormatter.string(from: Date())
@@ -118,14 +117,14 @@ class DetailCityViewModelMapper {
     private func mapDetailFuturTempDailyViewCellModel(daily: DailyWeather) -> DetailFuturTempDailyViewCellModel {
         return DetailFuturTempDailyViewCellModel(
             date: mapDetailfuturDate(daily: daily),
-            temp: String("\(Int(WeatherTools.convertKelvinToCelsius(kelvin: daily.temp.day)))°"),
-            description: daily.weather[0].description,
-            icon: UIImage(named: daily.weather[0].icon) ?? ._01D
+            temp: String("\(Int(WeatherTools.convertKelvinToCelsius(kelvin: daily.temp?.day ?? 0)))°"),
+            description: daily.weather?[0].description ?? "",
+            icon: UIImage(named: daily.weather?[0].icon ?? "") ?? ._01D
         )
     }
 
     private func mapDetailfuturDate(daily: DailyWeather) -> String {
-        let date = WeatherTools.convertUnixTimeToDate(unixTime: daily.dt, dateFormat: "yyyy-MM-dd")
+        let date = WeatherTools.convertUnixTimeToDate(unixTime: daily.dt ?? 0, dateFormat: "yyyy-MM-dd")
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let dateNow = dateFormatter.string(from: Date())
@@ -142,7 +141,7 @@ class DetailCityViewModelMapper {
         } else if date == tomorrowString {
             return "Demain"
         } else {
-            return WeatherTools.convertUnixTimeToDate(unixTime: daily.dt, dateFormat: "EEEE")
+            return WeatherTools.convertUnixTimeToDate(unixTime: daily.dt ?? 0, dateFormat: "EEEE")
         }
     }
 }

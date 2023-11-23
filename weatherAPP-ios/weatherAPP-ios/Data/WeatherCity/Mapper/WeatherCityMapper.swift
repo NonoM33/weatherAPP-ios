@@ -26,7 +26,6 @@ class WeatherMapper {
             windKmh: mapWindKmh(),
             humidityPercent: mapHumidityPercent(),
             UVIndex: mapUVIndex(),
-            icon: mapIcon(),
             backgroundColor: mapBackgroundGradientLayer(),
             hourlyTemp: RESTWeatherGlobal.RESTDetaillWeather?.hourly ?? [],
             daysTemp: RESTWeatherGlobal.RESTDetaillWeather?.daily ?? []
@@ -44,12 +43,12 @@ class WeatherMapper {
     }
 
     private func mapTemperature() -> String {
-        let temp = RESTWeatherGlobal.RESTWeatherCity?.main.temp ?? 0
+        let temp = RESTWeatherGlobal.RESTWeatherCity?.main?.temp ?? 0
         return String(Int(WeatherTools.convertKelvinToCelsius(kelvin: temp)))
     }
 
     private func mapDescription() -> String {
-        return RESTWeatherGlobal.RESTWeatherCity?.weather[0].description ?? ""
+        return RESTWeatherGlobal.RESTWeatherCity?.weather?[0].description ?? ""
     }
 
     private func mapRainMm() -> Int {
@@ -57,7 +56,7 @@ class WeatherMapper {
     }
 
     private func mapWindKmh() -> String {
-        return (RESTWeatherGlobal.RESTWeatherCity?.wind.speed ?? 0).formatted(withDecimalPlaces: 1)
+        return (RESTWeatherGlobal.RESTWeatherCity?.wind?.speed ?? 0).formatted(withDecimalPlaces: 1)
     }
 
     private func mapHumidityPercent() -> Int {
@@ -68,13 +67,7 @@ class WeatherMapper {
         return Int(RESTWeatherGlobal.RESTDetaillWeather?.current.uvi ?? 0)
     }
 
-    private func mapIcon() -> UIImage? {
-        guard let icon = RESTWeatherGlobal.RESTWeatherCity?.weather[0].icon else { return nil }
-        return WeatherTools.iconTemperature(icon: icon)
-    }
-
     private func mapBackgroundGradientLayer() -> CAGradientLayer {
-        let temp = RESTWeatherGlobal.RESTWeatherCity?.main.temp ?? 0
         let color = Colors.orange
 
         let gradientLayer = CAGradientLayer()
