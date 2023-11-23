@@ -117,10 +117,32 @@ class DetailCityViewModelMapper {
 
     private func mapDetailFuturTempDailyViewCellModel(daily: DailyWeather) -> DetailFuturTempDailyViewCellModel {
         return DetailFuturTempDailyViewCellModel(
-            date: WeatherTools.convertUnixTimeToDate(unixTime: daily.dt, dateFormat: "EEEE"),
+            date: mapDetailfuturDate(daily: daily),
             temp: String("\(Int(WeatherTools.convertKelvinToCelsius(kelvin: daily.temp.day)))°"),
             description: daily.weather[0].description,
             icon: UIImage(named: daily.weather[0].icon) ?? ._01D
         )
+    }
+
+    private func mapDetailfuturDate(daily: DailyWeather) -> String {
+        let date = WeatherTools.convertUnixTimeToDate(unixTime: daily.dt, dateFormat: "yyyy-MM-dd")
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let dateNow = dateFormatter.string(from: Date())
+
+        var dayComponent = DateComponents()
+        dayComponent.day = 1
+        let theCalendar = Calendar.current
+        let tomorrow = theCalendar.date(byAdding: dayComponent, to: Date())
+        guard let tomorrow = tomorrow else { return "" }
+        let tomorrowString = dateFormatter.string(from: tomorrow)
+
+        if date == dateNow {
+            return "Aujourd'hui"
+        } else if date == tomorrowString {
+            return "Demain"
+        } else {
+            return WeatherTools.convertUnixTimeToDate(unixTime: daily.dt, dateFormat: "EEEE")
+        }
     }
 }
