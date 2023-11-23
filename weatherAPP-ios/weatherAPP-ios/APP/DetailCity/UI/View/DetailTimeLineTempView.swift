@@ -11,6 +11,8 @@ import UIKit
 private enum Constants {
     static let reuseIdentifier = "DetailTimeLineTempViewCell"
     static let fatalError = "Unable to dequeue DetailTimeLineTempViewCell"
+    static let cellHeight = 130.0
+    static let cellWidth = 57.0
 }
 
 class DetailTimeLineTempView: UIView {
@@ -65,7 +67,7 @@ class DetailTimeLineTempView: UIView {
             collectionView.leftAnchor.constraint(equalTo: leftAnchor),
             collectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
             collectionView.rightAnchor.constraint(equalTo: rightAnchor),
-            collectionView.heightAnchor.constraint(equalToConstant: 130)
+            collectionView.heightAnchor.constraint(equalToConstant: Constants.cellHeight)
         ])
     }
 }
@@ -74,19 +76,19 @@ extension DetailTimeLineTempView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 57, height: 130)
+        return CGSize(width: Constants.cellWidth, height: Constants.cellHeight)
     }
 
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+        return .zero
     }
 
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+        return .zero
     }
 }
 

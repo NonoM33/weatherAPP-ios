@@ -47,8 +47,6 @@ class DetailStatsInfoViewCell: UIView {
         stackView.addArrangedSubview(descriptionLabel)
         stackView.addArrangedSubview(precisionLabel)
 
-        stackView.spacing = 0
-
         NSLayoutConstraint.activate([
             stackView.leftAnchor.constraint(equalTo: leftAnchor),
             stackView.topAnchor.constraint(equalTo: topAnchor),

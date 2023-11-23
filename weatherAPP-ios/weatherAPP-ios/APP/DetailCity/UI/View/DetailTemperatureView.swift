@@ -55,7 +55,7 @@ class DetailTemperatureView: UIView {
                 ),
                 descriptionLabel.topAnchor.constraint(
                     equalTo: temperatureLabel.topAnchor,
-                    constant: 10.0
+                    constant: WeatherSpacing.Separator.small.value
                 ),
                 descriptionLabel.leftAnchor.constraint(
                     equalTo: temperatureLabel.rightAnchor,

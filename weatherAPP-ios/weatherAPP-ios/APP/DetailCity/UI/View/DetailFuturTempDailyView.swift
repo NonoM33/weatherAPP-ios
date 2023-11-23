@@ -11,6 +11,8 @@ import UIKit
 private enum Constants {
     static let reuseIdentifier = "DetailFuturTempDailyViewCell"
     static let fatalError = "Unable to dequeue DetailTimeLineTempViewCell"
+    static let cellHeigth = 120.0
+    static let cellWidth = 110.0
 }
 
 class DetailFuturTempDailyView: UIView {
@@ -65,7 +67,9 @@ class DetailFuturTempDailyView: UIView {
             collectionView.leftAnchor.constraint(equalTo: leftAnchor),
             collectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
             collectionView.rightAnchor.constraint(equalTo: rightAnchor),
-            collectionView.heightAnchor.constraint(equalToConstant: 120)
+            collectionView.heightAnchor.constraint(
+                equalToConstant: Constants.cellHeigth
+            )
         ])
     }
 }
@@ -74,19 +78,19 @@ extension DetailFuturTempDailyView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 110, height: 120)
+        return CGSize(width: Constants.cellWidth, height: Constants.cellHeigth)
     }
 
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+        return .zero
     }
 
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+        return .zero
     }
 }
 

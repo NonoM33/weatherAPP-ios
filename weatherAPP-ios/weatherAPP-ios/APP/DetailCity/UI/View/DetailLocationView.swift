@@ -8,6 +8,10 @@
 import Foundation
 import UIKit
 
+private enum Constants {
+    static let isTodayLabelText = "Aujourd'hui"
+}
+
 class DetailLocationView: UIView {
 
     private lazy var stackView = UIStackView(style: .default)
@@ -34,7 +38,7 @@ class DetailLocationView: UIView {
     func configure(with viewModel: DetailLocationViewModel) {
         self.locationLabel.text = viewModel.location
         self.dateLabel.text = viewModel.date
-        self.isTodayLabel.text = "Aujourd'hui"
+        self.isTodayLabel.text = Constants.isTodayLabelText
     }
 
     // MARK: - Private

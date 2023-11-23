@@ -8,6 +8,10 @@
 import Foundation
 import UIKit
 
+private enum Constants {
+    static let iconHeiht = 35.0
+}
+
 class DetailTimeLineTempViewCell: UICollectionViewCell {
 
     private lazy var valueLabel = UILabel(style: .body3)
@@ -76,6 +80,8 @@ class DetailTimeLineTempViewCell: UICollectionViewCell {
     private func setupIcon() {
         iconImageView.translatesAutoresizingMaskIntoConstraints = false
         iconImageView.contentMode = .scaleAspectFit
-        iconImageView.heightAnchor.constraint(equalToConstant: 35).isActive = true
+        iconImageView.heightAnchor.constraint(
+            equalToConstant: Constants.iconHeiht
+        ).isActive = true
     }
 }

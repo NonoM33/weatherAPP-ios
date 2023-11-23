@@ -22,14 +22,13 @@ class CitySearchCoorindator: Coordinator {
     // MARK: - Coordinator
 
     func start() {
-        // FIXME: (Renaud Cosson) 2023/15/11 Fix typo viewControler -> ViewController
-        let viewControler = CitySearchViewController()
-        viewControler.presenter = DependencyProvider.shared.citySearchPresenter(
-            viewContract: viewControler,
+        let viewController = CitySearchViewController()
+        viewController.presenter = DependencyProvider.shared.citySearchPresenter(
+            viewContract: viewController,
             presenterDelegate: self
         )
-        navigationController.pushViewController(viewControler, animated: true)
-        bindToLifecycle(of: viewControler)
+        navigationController.pushViewController(viewController, animated: true)
+        bindToLifecycle(of: viewController)
     }
 }
 

@@ -23,7 +23,7 @@ class PresenterAssembly: Assembly {
             )
         }
 
-        container.register(DetailCityViewPresenter.self) { r, viewcontract, delegate, weatherCityEntitie in
+        container.register(DetailCityViewPresenter.self) { _, viewcontract, delegate, weatherCityEntitie in
             DetailCityViewPresenterImplementation(
                 delegate: delegate,
                 viewContract: viewcontract,
