@@ -24,7 +24,6 @@
 		E2260C6D2B050A4100044BBD /* DetailCityCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2260C6C2B050A4100044BBD /* DetailCityCoordinator.swift */; };
 		E228BE142B026865001E3616 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E228BE132B026865001E3616 /* AppDelegate.swift */; };
 		E228BE162B026865001E3616 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E228BE152B026865001E3616 /* SceneDelegate.swift */; };
-		E228BE182B026865001E3616 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E228BE172B026865001E3616 /* ViewController.swift */; };
 		E228BE1B2B026865001E3616 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E228BE192B026865001E3616 /* Main.storyboard */; };
 		E228BE1E2B026865001E3616 /* weatherAPP_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E228BE1C2B026865001E3616 /* weatherAPP_ios.xcdatamodeld */; };
 		E228BE202B026866001E3616 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E228BE1F2B026866001E3616 /* Assets.xcassets */; };
@@ -103,7 +102,6 @@
 		E228BE102B026865001E3616 /* weatherAPP-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "weatherAPP-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E228BE132B026865001E3616 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E228BE152B026865001E3616 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E228BE172B026865001E3616 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E228BE1A2B026865001E3616 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E228BE1D2B026865001E3616 /* weatherAPP_ios.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = weatherAPP_ios.xcdatamodel; sourceTree = "<group>"; };
 		E228BE1F2B026866001E3616 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -329,7 +327,6 @@
 				E2B066A02B0286F70034782B /* Constants */,
 				E228BE132B026865001E3616 /* AppDelegate.swift */,
 				E228BE152B026865001E3616 /* SceneDelegate.swift */,
-				E228BE172B026865001E3616 /* ViewController.swift */,
 				E228BE192B026865001E3616 /* Main.storyboard */,
 				E228BE1F2B026866001E3616 /* Assets.xcassets */,
 				E228BE212B026866001E3616 /* LaunchScreen.storyboard */,
@@ -592,7 +589,6 @@
 				E2260C4E2B0501B000044BBD /* WeatherCityMapper.swift in Sources */,
 				E2A2618D2B0CEF9700E33991 /* DetailLocationViewModel.swift in Sources */,
 				E2260C6D2B050A4100044BBD /* DetailCityCoordinator.swift in Sources */,
-				E228BE182B026865001E3616 /* ViewController.swift in Sources */,
 				E228BE142B026865001E3616 /* AppDelegate.swift in Sources */,
 				E23997D42B03B9CA0035BC77 /* CitySearchPresenter.swift in Sources */,
 				E2260C652B05040100044BBD /* DetailCityViewModel.swift in Sources */,
