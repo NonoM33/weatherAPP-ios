@@ -9,7 +9,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    var coordinator: CitySearchCoorindator?
+    var coordinator: HomePageCoordinator?
 
     func scene(_ scene: UIScene,
                willConnectTo session: UISceneSession,
@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         guard let navigationManager = DependencyProvider.shared.navigationManager().mainViewController else { return }
 
-        let coordinator = CitySearchCoorindator(navigationController: navigationManager)
+        let coordinator = HomePageCoordinator(navigationController: navigationManager)
         self.coordinator = coordinator
         self.window?.rootViewController = navigationManager
         coordinator.start()
