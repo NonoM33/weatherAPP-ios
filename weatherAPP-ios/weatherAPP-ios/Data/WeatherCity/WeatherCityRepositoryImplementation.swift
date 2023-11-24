@@ -15,7 +15,7 @@ class WeatherCityRepositoryImplementation: WeatherCityRepository {
 
     init(weatherService: WeatherService) {
         self.weatherService = weatherService
-        self.weatherService.setAPIKey("YOUR_API_KEY")
+        self.weatherService.setAPIKey("6b3d2425532230ea58dd2a03369bb293")
     }
 
     // MARK: - WeatherCityRepository
