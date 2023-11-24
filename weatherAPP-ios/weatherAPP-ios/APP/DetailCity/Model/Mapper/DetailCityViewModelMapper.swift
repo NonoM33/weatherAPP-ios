@@ -21,7 +21,6 @@ class DetailCityViewModelMapper {
 
     func map() -> DetailCityViewModel {
         return DetailCityViewModel(
-            backgroundColor: weatherCityEntitie.backgroundColor,
             detailLocationViewModel: mapDetailLocationViewModel(),
             detailTemperatureViewModel: mapDetailTemperatureViewModel(),
             detailStatsInfoViewModel: mapDetailStatsInfoViewModel(),

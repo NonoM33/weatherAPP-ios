@@ -15,7 +15,7 @@ extension ViewStyle where T == UIView {
     }
 
     public static let Primary = ViewStyle<UIView> {
-        $0.backgroundColor = .darkGray
+        $0.backgroundColor = Colors.gray
     }
 
     public static let rounded = ViewStyle<UIView> {

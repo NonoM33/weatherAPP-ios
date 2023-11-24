@@ -13,18 +13,25 @@ class DetailCityViewPresenterImplementation: DetailCityViewPresenter {
     private var viewContract: DetailCityViewContract
     private var weatherCityEntitie: WeatherCityEntitie
     private var viewModel: DetailCityViewModel?
+    private var navigationManager: NavigationManager
 
     init(delegate: DetailCityViewPresenterDelegate,
          viewContract: DetailCityViewContract,
-         weatherCityEntitie: WeatherCityEntitie) {
+         weatherCityEntitie: WeatherCityEntitie,
+         navigationManager: NavigationManager) {
         self.delegate = delegate
         self.viewContract = viewContract
         self.weatherCityEntitie = weatherCityEntitie
+        self.navigationManager = navigationManager
     }
 
     // MARK: - DetailCityViewPresenter
 
     func start() {
         self.viewContract.display(with: DetailCityViewModelMapper(weatherCityEntitie: weatherCityEntitie).map())
+    }
+
+    func addFavorite() {
+        navigationManager.popToRootViewController(animated: true)
     }
 }

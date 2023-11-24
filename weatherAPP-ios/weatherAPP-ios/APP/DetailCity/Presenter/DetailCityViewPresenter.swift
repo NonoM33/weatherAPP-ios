@@ -9,6 +9,7 @@ import Foundation
 
 protocol DetailCityViewPresenter {
     func start()
+    func addFavorite()
 }
 
 protocol DetailCityViewPresenterDelegate: AnyObject {}

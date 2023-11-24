@@ -51,6 +51,16 @@ public class DependencyProvider: NSObject {
         )!
     }
 
+    func homePagePresenter(viewContract: HomePageViewContract,
+                           presenterDelegate: HomePagePresenterDelegate)
+    -> HomePagePresenter {
+        return resolver.resolve(
+            HomePagePresenter.self,
+            arguments: viewContract,
+            presenterDelegate
+        )!
+    }
+
     func navigationManager() -> NavigationManager {
         return resolver.resolve(NavigationManager.self)!
     }
