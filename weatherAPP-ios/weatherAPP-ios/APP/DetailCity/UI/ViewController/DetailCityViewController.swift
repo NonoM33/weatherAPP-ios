@@ -66,6 +66,24 @@ class DetailCityViewController: UIViewController {
         )
         view.addSubview(stackView)
         setupStackView()
+        setupRightButtonNavBar()
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [Colors.orange.cgColor, Colors.gray.withAlphaComponent(0.3).cgColor]
+        gradientLayer.locations = [0.0, 1.0]
+        gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 0.5, y: 1.0)
+        gradientLayer.frame = view.bounds
+        view.layer.insertSublayer(gradientLayer, at: 0)
+    }
+
+    private func setupRightButtonNavBar() {
+        let addButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(addFavoriteTapped))
+        addButton.tintColor = Colors.white
+        navigationItem.rightBarButtonItem = addButton
+    }
+
+    @objc private func addFavoriteTapped() {
+        presenter?.addFavorite()
     }
 
     private func setupStackView() {
