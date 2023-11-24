@@ -8,4 +8,5 @@
 import Foundation
 
 struct HomePageViewModel {
+    let cityFavoriteViewModel: CityFavoriteViewModel
 }
