@@ -24,13 +24,15 @@ class CitySearchViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        setupSearchController()
+        setupUISearchController()
         presenter?.start()
     }
 
     // MARK: - Private
 
     private func setup() {
-        view.backgroundColor = Colors.black
+        view.applyStyle(.Primary)
         setupSearchController()
         setupUISearchController()
         setupSearchCompleter()
@@ -40,10 +42,13 @@ class CitySearchViewController: UITableViewController {
     private func setupSearchController() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Rechercher une ville"
+        searchController.searchBar.sizeToFit()
     }
 
     private func setupUISearchController() {
         navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
         definesPresentationContext = true
     }
 
@@ -84,6 +89,7 @@ extension CitySearchViewController {
         )
         let searchResult = searchResults[indexPath.row]
         cell.textLabel?.text = "\(searchResult.title), \(searchResult.subtitle)"
+        cell.backgroundColor = .clear
         return cell
     }
 
