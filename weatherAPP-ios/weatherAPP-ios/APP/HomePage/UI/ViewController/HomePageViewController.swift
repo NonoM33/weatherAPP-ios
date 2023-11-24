@@ -63,5 +63,15 @@ extension HomePageViewController: HomePageViewContract {
 
     // MARK: - HomePageViewContract
     func display(_ viewModel: HomePageViewModel) {
+        cityFavoriteView.configure(with: viewModel.cityFavoriteViewModel)
+    }
+}
+
+extension HomePageViewController: CityFavoriteViewDelegate {
+
+    // MARK: - CityFavoriteViewDelegate
+
+    func cityFavoriteView(_ view: CityFavoriteView, didSelectCity lat: Double, lon: Double) {
+        presenter?.getCityFavorite(lat: lat, lon: lon)
     }
 }
