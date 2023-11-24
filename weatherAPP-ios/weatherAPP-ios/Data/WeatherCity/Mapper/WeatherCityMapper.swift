@@ -26,7 +26,6 @@ class WeatherMapper {
             windKmh: mapWindKmh(),
             humidityPercent: mapHumidityPercent(),
             UVIndex: mapUVIndex(),
-            backgroundColor: mapBackgroundGradientLayer(),
             hourlyTemp: RESTWeatherGlobal.RESTDetaillWeather?.hourly ?? [],
             daysTemp: RESTWeatherGlobal.RESTDetaillWeather?.daily ?? []
         )
@@ -65,17 +64,5 @@ class WeatherMapper {
 
     private func mapUVIndex() -> Int {
         return Int(RESTWeatherGlobal.RESTDetaillWeather?.current.uvi ?? 0)
-    }
-
-    private func mapBackgroundGradientLayer() -> CAGradientLayer {
-        let color = Colors.orange
-
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [color.cgColor, UIColor(red: 0.77, green: 0.74, blue: 0.72, alpha: 1).cgColor]
-        gradientLayer.locations = [0.0, 1.0]
-        gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.0)
-        gradientLayer.endPoint = CGPoint(x: 0.5, y: 1.0)
-
-        return gradientLayer
     }
 }

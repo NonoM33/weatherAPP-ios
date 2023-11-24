@@ -113,9 +113,6 @@ extension DetailCityViewController: DetailCityViewContract {
     // MARK: - DetailCityViewContract
 
     func display(with viewModel: DetailCityViewModel) {
-        let gradientLayer = viewModel.backgroundColor
-        gradientLayer.frame = view.bounds
-        view.layer.insertSublayer(gradientLayer, at: 0)
         detailLocationView.configure(with: viewModel.detailLocationViewModel)
         detailTemperatureView.configure(with: viewModel.detailTemperatureViewModel)
         detailStatsInfoView.configure(with: viewModel.detailStatsInfoViewModel)

@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 struct DetailCityViewModel {
-    let backgroundColor: CAGradientLayer
     let detailLocationViewModel: DetailLocationViewModel
     let detailTemperatureViewModel: DetailTemperatureViewModel
     let detailStatsInfoViewModel: DetailStatsInfoViewModel
@@ -17,7 +16,6 @@ struct DetailCityViewModel {
     let detailFuturTempDailyViewModel: DetailFuturTempDailyViewModel
 
     static let empty = Self(
-        backgroundColor: .init(),
         detailLocationViewModel: .emtpy,
         detailTemperatureViewModel: .empty,
         detailStatsInfoViewModel: .empty,

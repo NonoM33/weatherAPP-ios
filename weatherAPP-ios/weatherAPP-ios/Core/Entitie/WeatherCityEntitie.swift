@@ -18,7 +18,6 @@ struct WeatherCityEntitie {
     let windKmh: String
     let humidityPercent: Int
     let UVIndex: Int
-    let backgroundColor: CAGradientLayer
     let hourlyTemp: [HourlyWeather]
     let daysTemp: [DailyWeather]
 }
