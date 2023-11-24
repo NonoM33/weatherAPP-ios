@@ -36,7 +36,8 @@ class PresenterAssembly: Assembly {
             HomePagePresenterImplementation(
                 delegate: delegate,
                 viewContract: viewcontract,
-                navigationManager: r.resolve(NavigationManager.self)!
+                navigationManager: r.resolve(NavigationManager.self)!,
+                weatherCityRepository: r.resolve(WeatherCityRepository.self)!
             )
         }
     }

@@ -10,6 +10,7 @@ import Foundation
 protocol HomePagePresenter {
     func start()
     func tapFavorite()
+    func getCityFavorite(lat: Double, lon: Double)
 }
 
 protocol HomePagePresenterDelegate: AnyObject {}
