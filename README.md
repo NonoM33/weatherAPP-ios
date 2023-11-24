@@ -45,6 +45,10 @@ Distribué sous la licence MIT.
 - Email: [renaud.cosson@lab5com.fr](mailto:renaud.cosson@lab5com.fr)
 - Lien du Projet: [https://github.com/NonoM33/weatherAPP-ios](https://github.com/NonoM33/weatherAPP-ios)
 
+<img src="https://github.com/NonoM33/weatherAPP-ios/assets/29004520/0cc46df9-27b5-414d-adb1-9ce8760b0c59" height="250">
+</p>
+
+
 ---
 
 Ce README a été généré avec ❤️ par Renaud Cosson
